@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raksha Bandhan — A Bond with My Sister</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Inter',sans-serif;margin:0;padding:20px;background:#fff5f0;color:#222;overflow-x:hidden;position:relative;min-height:100vh;}
+    header{background:#fff;border-radius:10px;padding:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);margin-bottom:20px;text-align:center;position:relative;z-index:2;}
+    header h1{font-family:'Playfair Display',serif;color:#8b2b2b;margin:0;}
+    .card{background:#fff;padding:20px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.05);margin-bottom:20px;position:relative;z-index:2;}
+    .photo-quote-container{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:center;}
+    .photo-space{background:#ffeef2;border:2px dashed #ff6b6b;border-radius:10px;width:300px;height:300px;display:flex;align-items:center;justify-content:center;color:#ff6b6b;font-weight:600;flex-shrink:0;}
+    .telugu-quote{max-width:300px;background:#fff0f6;border-left:5px solid #d6336c;padding:15px;border-radius:8px;font-family:'Playfair Display',serif;font-size:18px;line-height:1.5;color:#8b2b2b;}
+    .letter{background:#fff8e1;border-left:5px solid #ffb400;padding:15px;border-radius:5px;margin-top:20px;}
+    .quote-card{background:#ffeef2;padding:15px;border-radius:5px;margin-top:10px;}
+    footer{text-align:center;color:#666;font-size:14px;margin-top:20px;position:relative;z-index:2;}
+    .flower{position:fixed;top:-60px;width:60px;height:60px;background-size:cover;background-repeat:no-repeat;background-position:center;animation:floatFlower linear infinite;z-index:1;pointer-events:none;}
+    @keyframes floatFlower{
+      0%{transform:translateY(-60px) rotate(0deg);opacity:0;}
+      10%{opacity:1;}
+      50%{opacity:1;}
+      90%{opacity:1;}
+      100%{transform:translateY(110vh) rotate(360deg);opacity:0;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Raksha Bandhan — For My Sister</h1>
+    <p>Celebrating the love, laughter & promises we share.</p>
+  </header>
+  <main>
+    <section class="card">
+      <h2>A note from your brother</h2>
+      <div class="photo-quote-container">
+        <div class="photo-space"><img src="rakhiii.jpg" alt="Me and my sister" style="max-width: 100%; max-height: 100%; border-radius: 8px;"></div>
+        <div class="telugu-quote">"అక్క అనేది కేవలం ఒక బంధం కాదు... అది నా హృదయానికి ఎప్పటికీ అచంచలమైన ఆశ్రయం."</div>
+      </div>
+      <p>Dear sister, this little corner of the web is made just for you — to celebrate the laughter you bring, the strength you show, and the tiny memories that quietly shape us.</p>
+      <div class="quote-card">
+        <p>"Sisters are different flowers from the same garden."</p>
+        <span>— Unknown</span>
+      </div>
+      <div class="letter">
+        <strong>My letter to you</strong>
+        <p>My dearest sister, Growing up with you has been my greatest gift. You taught me patience when I had none, and courage when I was afraid...</p>
+        <p>Akka, nuvvu naa life lo sister gaane kaakunda, rendo tallila naa every step lo support icchavu. Nee love & care eppudu naaku strength istayi. Ee Raksha Bandhan roju, ninnu entha premistunnano cheppalenu… but you’re my forever best friend & protector. Love you so much, Akka!</p>
+      </div>
+    </section>
+    <footer>
+      <small>Made with warm colors, flowers, and a lot of love.</small>
+    </footer>
+  </main>
+  <script>
+    const flowerImages = [
+      'https://i.imgur.com/tkCkkJ4.png',
+      'https://i.imgur.com/4AiXzf8.png',
+      'https://i.imgur.com/LjV1zjL.png',
+      'https://i.imgur.com/VUo9FfV.png'
+    ];
+
+    function createFlower(){
+      const flower=document.createElement('div');
+      flower.classList.add('flower');
+      flower.style.left=Math.random()*100+'vw';
+      flower.style.backgroundImage = `url(${flowerImages[Math.floor(Math.random()*flowerImages.length)]})`;
+      flower.style.animationDuration=(8+Math.random()*5)+'s';
+      document.body.appendChild(flower);
+      setTimeout(()=>{flower.remove();},13000);
+    }
+    setInterval(createFlower,500);
+  </script>
+</body>
+</html>
