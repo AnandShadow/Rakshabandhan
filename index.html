@@ -4,38 +4,274 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Raksha Bandhan — A Bond with My Sister</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    body{font-family:'Inter',sans-serif;margin:0;padding:20px;background:#fff5f0;color:#222;overflow-x:hidden;position:relative;min-height:100vh;}
-    header{background:#fff;border-radius:10px;padding:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);margin-bottom:20px;text-align:center;position:relative;z-index:2;}
-    header h1{font-family:'Playfair Display',serif;color:#8b2b2b;margin:0;}
-    .card{background:#fff;padding:20px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.05);margin-bottom:20px;position:relative;z-index:2;}
-    .photo-quote-container{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:center;}
-    .photo-space{background:#ffeef2;border:2px dashed #ff6b6b;border-radius:10px;width:300px;height:300px;display:flex;align-items:center;justify-content:center;color:#ff6b6b;font-weight:600;flex-shrink:0;}
-    .telugu-quote{max-width:300px;background:#fff0f6;border-left:5px solid #d6336c;padding:15px;border-radius:8px;font-family:'Playfair Display',serif;font-size:18px;line-height:1.5;color:#8b2b2b;}
-    .letter{background:#fff8e1;border-left:5px solid #ffb400;padding:15px;border-radius:5px;margin-top:20px;}
-    .quote-card{background:#ffeef2;padding:15px;border-radius:5px;margin-top:10px;}
-    footer{text-align:center;color:#666;font-size:14px;margin-top:20px;position:relative;z-index:2;}
-    .flower{position:fixed;top:-60px;width:60px;height:60px;background-size:cover;background-repeat:no-repeat;background-position:center;animation:floatFlower linear infinite;z-index:1;pointer-events:none;}
-    @keyframes floatFlower{
-      0%{transform:translateY(-60px) rotate(0deg);opacity:0;}
-      10%{opacity:1;}
-      50%{opacity:1;}
-      90%{opacity:1;}
-      100%{transform:translateY(110vh) rotate(360deg);opacity:0;}
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 24px 16px 40px;
+      background: linear-gradient(135deg, #fff0f6 0%, #fff5e6 50%, #fdf0ff 100%);
+      color: #222;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* ── Decorative top ribbon ── */
+    body::before {
+      content: '';
+      display: block;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #ff6b6b, #ff9f43, #f368e0, #6c5ce7, #ff6b6b);
+      background-size: 300% 100%;
+      animation: ribbonShift 4s linear infinite;
+      z-index: 100;
+    }
+    @keyframes ribbonShift {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 300% 50%; }
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #fff 60%, #fff0f6 100%);
+      border-radius: 20px;
+      padding: 36px 24px 28px;
+      box-shadow: 0 8px 32px rgba(214, 51, 108, 0.15), 0 2px 8px rgba(0,0,0,0.06);
+      margin-bottom: 28px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      border: 1.5px solid rgba(214, 51, 108, 0.12);
+      overflow: hidden;
+    }
+    header::after {
+      content: '🪢';
+      position: absolute;
+      top: 14px; right: 20px;
+      font-size: 2rem;
+      opacity: 0.55;
+      animation: sway 3s ease-in-out infinite;
+    }
+    @keyframes sway {
+      0%, 100% { transform: rotate(-8deg); }
+      50%       { transform: rotate(8deg); }
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 5vw, 2.6rem);
+      margin: 0 0 10px;
+      background: linear-gradient(135deg, #8b2b2b 0%, #d6336c 60%, #ff6b6b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    header p {
+      margin: 0;
+      color: #c2185b;
+      font-size: 1.05rem;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      padding: 28px 24px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(214, 51, 108, 0.10), 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 2;
+      border: 1.5px solid rgba(214, 51, 108, 0.08);
+      backdrop-filter: blur(2px);
+    }
+    .card h2 {
+      font-family: 'Playfair Display', serif;
+      color: #8b2b2b;
+      margin: 0 0 20px;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card h2::before { content: '❤️'; font-size: 1.1rem; }
+
+    /* ── Photo + quote row ── */
+    .photo-quote-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .photo-space {
+      background: linear-gradient(135deg, #ffeef2, #fff0fb);
+      border: 2.5px solid #f06292;
+      border-radius: 16px;
+      width: 300px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(240, 98, 146, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .photo-space:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 36px rgba(240, 98, 146, 0.35);
+    }
+    .photo-space img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 13px;
+    }
+
+    .telugu-quote {
+      max-width: 320px;
+      background: linear-gradient(135deg, #fff0f6, #fdf0ff);
+      border-left: 5px solid #d6336c;
+      padding: 20px 18px;
+      border-radius: 12px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #6b1a3a;
+      box-shadow: 0 4px 16px rgba(214, 51, 108, 0.12);
+      position: relative;
+    }
+    .telugu-quote::before {
+      content: '\201C';
+      font-size: 4rem;
+      color: #d6336c;
+      opacity: 0.2;
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    /* ── Description paragraph ── */
+    .card > p {
+      color: #444;
+      line-height: 1.75;
+      font-size: 0.97rem;
+    }
+
+    /* ── English quote card ── */
+    .quote-card {
+      background: linear-gradient(135deg, #ffeef2, #fff8f0);
+      padding: 18px 20px;
+      border-radius: 12px;
+      margin-top: 18px;
+      border: 1px solid rgba(214, 51, 108, 0.15);
+      text-align: center;
+    }
+    .quote-card p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #8b2b2b;
+      margin: 0 0 6px;
+    }
+    .quote-card span {
+      font-size: 0.85rem;
+      color: #999;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Letter ── */
+    .letter {
+      background: linear-gradient(135deg, #fffde7, #fff8e1);
+      border-left: 5px solid #ffb400;
+      padding: 20px 20px 20px 24px;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 4px 16px rgba(255, 180, 0, 0.12);
+      position: relative;
+    }
+    .letter::before {
+      content: '✉️';
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      font-size: 1.4rem;
+      opacity: 0.5;
+    }
+    .letter strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: #7a5c00;
+    }
+    .letter p {
+      color: #5a4000;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+      margin-top: 8px;
+      position: relative;
+      z-index: 2;
+      letter-spacing: 0.03em;
+    }
+    footer small::before { content: '🌸  '; }
+    footer small::after  { content: '  🌸'; }
+
+    /* ── Falling flowers ── */
+    .flower {
+      position: fixed;
+      top: -80px;
+      width: 50px;
+      height: 50px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      animation: floatFlower linear infinite;
+      z-index: 1;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+    }
+    @keyframes floatFlower {
+      0%   { transform: translateY(-80px) rotate(0deg) scale(0.6); opacity: 0; }
+      10%  { opacity: 0.9; transform: translateY(5vh) rotate(36deg) scale(1); }
+      50%  { opacity: 0.85; }
+      90%  { opacity: 0.7; }
+      100% { transform: translateY(110vh) rotate(400deg) scale(0.8); opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+      .photo-space { width: 260px; height: 260px; }
+      .telugu-quote { max-width: 100%; }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Raksha Bandhan — For My Sister</h1>
-    <p>Celebrating the love, laughter & promises we share.</p>
+    <p>Celebrating the love, laughter &amp; promises we share.</p>
   </header>
   <main>
     <section class="card">
       <h2>A note from your brother</h2>
       <div class="photo-quote-container">
-        <div class="photo-space"><img src="rakhiii.jpg" alt="Me and my sister" style="max-width: 100%; max-height: 100%; border-radius: 8px;"></div>
+        <div class="photo-space"><img src="rakhiii.jpg" alt="Me and my sister"></div>
         <div class="telugu-quote">"అక్క అనేది కేవలం ఒక బంధం కాదు... అది నా హృదయానికి ఎప్పటికీ అచంచలమైన ఆశ్రయం."</div>
       </div>
       <p>Dear sister, this little corner of the web is made just for you — to celebrate the laughter you bring, the strength you show, and the tiny memories that quietly shape us.</p>
@@ -46,7 +282,7 @@
       <div class="letter">
         <strong>My letter to you</strong>
         <p>My dearest sister, Growing up with you has been my greatest gift. You taught me patience when I had none, and courage when I was afraid...</p>
-        <p>Akka, nuvvu naa life lo sister gaane kaakunda, rendo tallila naa every step lo support icchavu. Nee love & care eppudu naaku strength istayi. Ee Raksha Bandhan roju, ninnu entha premistunnano cheppalenu… but you’re my forever best friend & protector. Love you so much, Akka!</p>
+        <p>Akka, nuvvu naa life lo sister gaane kaakunda, rendo tallila naa every step lo support icchavu. Nee love &amp; care eppudu naaku strength istayi. Ee Raksha Bandhan roju, ninnu entha premistunnano cheppalenu… but you're my forever best friend &amp; protector. Love you so much, Akka!</p>
       </div>
     </section>
     <footer>
@@ -61,16 +297,19 @@
       'https://i.imgur.com/VUo9FfV.png'
     ];
 
-    function createFlower(){
-      const flower=document.createElement('div');
+    function createFlower() {
+      const flower = document.createElement('div');
       flower.classList.add('flower');
-      flower.style.left=Math.random()*100+'vw';
-      flower.style.backgroundImage = `url(${flowerImages[Math.floor(Math.random()*flowerImages.length)]})`;
-      flower.style.animationDuration=(8+Math.random()*5)+'s';
+      const size = 36 + Math.random() * 40;
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.width = size + 'px';
+      flower.style.height = size + 'px';
+      flower.style.backgroundImage = `url(${flowerImages[Math.floor(Math.random() * flowerImages.length)]})`;
+      flower.style.animationDuration = (9 + Math.random() * 6) + 's';
       document.body.appendChild(flower);
-      setTimeout(()=>{flower.remove();},13000);
+      setTimeout(() => { flower.remove(); }, 15000);
     }
-    setInterval(createFlower,500);
+    setInterval(createFlower, 600);
   </script>
 </body>
 </html>
